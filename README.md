@@ -8,7 +8,9 @@ It allows you to find the solution to quadratic functions, absolute value functi
 To run this program, you must first have Python installed, as well as the python library "matplotlib".
 This only needs to be done once.
 
-Get the latest Python release from https://www.python.org/downloads/ .
+Get the latest Python standalone installer from https://www.python.org/downloads/ .
+
+When installing python, make to sure to check to option <Add python.exe to PATH>
 
 After Python is installed, open your terminal and run `pip install matplotlib` .
 
@@ -118,6 +120,7 @@ The `clear results` button will, as it's name says, clear all results currently 
 Code: MIT License  
 Documentation and visuals: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
 See the [LICENSE](LICENSE) file for full details.
+
 
 
 
