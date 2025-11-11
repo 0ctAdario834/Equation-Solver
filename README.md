@@ -10,7 +10,7 @@ This only needs to be done once.
 
 Get the latest Python standalone installer from https://www.python.org/downloads/ .
 
-When installing python, make to sure to check to option <Add python.exe to PATH>
+When installing python, make to sure to check to option *Add python.exe to PATH*
 
 After Python is installed, open your terminal and run `pip install matplotlib` .
 
@@ -120,6 +120,7 @@ The `clear results` button will, as it's name says, clear all results currently 
 Code: MIT License  
 Documentation and visuals: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
 See the [LICENSE](LICENSE) file for full details.
+
 
 
 
