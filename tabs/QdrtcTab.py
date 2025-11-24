@@ -107,8 +107,8 @@ def create_quadratic_tab(notebook, window):
                 messagebox.showerror("Error", "This is not a quadratic equation.")
                 return
             printa = 'x²' if a == 1 else '-x²' if a == -1 else f'{a}x²'
-            printb = '' if b == 0 else f"+ {abs(b)}x" if b > 0 else f"- {abs(b)}x"
-            printc = '' if c == 0 else f"+ {abs(c)}" if c > 0 else f"- {abs(c)}"
+            printb = '' if b == 0 else f" + {abs(b)}x" if b > 0 else f" - {abs(b)}x"
+            printc = '' if c == 0 else f" + {abs(c)}" if c > 0 else f" - {abs(c)}"
             printy = y
             confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}{printb}{printc} ?")
             if not confirmfnc:

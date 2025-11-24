@@ -4,10 +4,11 @@ from tabs.QdrtcTab import create_quadratic_tab
 from tabs.AbsltTab import create_absolute_tab
 from tabs.SqrtTab import create_sqrt_tab
 from tabs.RtnlTab import create_rtnl_tab
+from tabs.LogTab import create_logarithmic_tab
 from utils import set_format
 
 window = Tk()
-window.geometry("900x720")
+window.geometry("960x720")
 window.resizable(False, False)
 window.title("Equation Solver")
 icon = PhotoImage(file='logo.png')
@@ -25,6 +26,7 @@ create_quadratic_tab(notebook, window)
 create_absolute_tab(notebook, window)
 create_sqrt_tab(notebook, window)
 create_rtnl_tab(notebook, window)
+create_logarithmic_tab(notebook, window)
 
 Result_Format = ['Fractions', 'Decimals']
 

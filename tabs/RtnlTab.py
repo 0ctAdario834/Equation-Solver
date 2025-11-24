@@ -89,7 +89,7 @@ def create_rtnl_tab(notebook, window):
             h_raw = entry_h.get()
             k_raw = entry_k.get()
             y_raw = entry_y.get()
-            a = float(-1 if a_raw.strip() == "-" else a_raw if a_raw != "Enter a..." else 1)
+            a = float(a_raw if a_raw != "Enter a..." else 1)
             b = float(-1 if b_raw.strip() == "-" else b_raw if b_raw != "Enter b..." else 1)
             h = float(h_raw if h_raw != "Enter h..." else 0)
             k = float(k_raw if k_raw != "Enter k..." else 0)
@@ -111,12 +111,15 @@ def create_rtnl_tab(notebook, window):
             if a == 0 or b == 0:
                 messagebox.showerror("Error", "This is not a rational equation.")
                 return
-            printa = '' if a == 1 else '-' if a == -1 else a
+            printa = f"-{abs(a)}" if a < 0 else f"+{abs(a)}"
             printb = '' if b == 1 else '-' if b == -1 else b
-            printh = '' if h == 0 else f"- {abs(h)}" if h > 0 else f"+ {abs(h)}"
-            printk = '' if k == 0 else f"+ {abs(k)}" if k > 0 else f"- {abs(k)}"
+            printh = '' if h == 0 else f" - {abs(h)}" if h > 0 else f" + {abs(h)}"
+            printk = '' if k == 0 else f" + {abs(k)}" if k > 0 else f" - {abs(k)}"
             printy = y
-            confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}/({printb}(x {printh})) {printk}?")
+            if printb != '':
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}/({printb}(x{printh})){printk}?")
+            else:
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}/x{printh}{printk}?")
             if not confirmfnc:
                 return
             is_solvable = ''

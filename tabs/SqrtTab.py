@@ -114,10 +114,13 @@ def create_sqrt_tab(notebook, window):
                 return
             printa = '' if a == 1 else '-' if a == -1 else a
             printb = '' if b == 1 else '-' if b == -1 else b
-            printh = '' if h == 0 else f"- {abs(h)}" if h > 0 else f"+ {abs(h)}"
-            printk = '' if k == 0 else f"+ {abs(k)}" if k > 0 else f"- {abs(k)}"
+            printh = '' if h == 0 else f" - {abs(h)}" if h > 0 else f" + {abs(h)}"
+            printk = '' if k == 0 else f" + {abs(k)}" if k > 0 else f" - {abs(k)}"
             printy = y
-            confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}√({printb}x {printh}) {printk}?")
+            if printb != '':
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}√({printb}(x{printh})){printk}?")
+            else:
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}√(x{printh}){printk}?")
             if not confirmfnc:
                 return
             is_solvable = ''
