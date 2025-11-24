@@ -109,7 +109,7 @@ If you do not enter a value in a field, it will use its default value:
 The program allows you to find the solution to a logarithmic equation of the form:
 
 $$
- y=a\,\log_{c}{(b(x-h))}+k
+ y=a\\log_{c}{(b(x-h))}+k
 $$
 
 A reference image is provided to indicate the form.
@@ -136,6 +136,7 @@ The `clear results` button will, as it's name says, clear all results currently 
 Code: MIT License  
 Documentation and visuals: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
 See the [LICENSE](LICENSE) file for full details.
+
 
 
 
