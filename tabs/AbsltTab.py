@@ -56,7 +56,7 @@ def create_absolute_tab(notebook, window):
     def expected_eqn():
         fig, ax = plt.subplots(figsize=(2, 0.5), dpi=100)
         ax.axis('off')
-        ax.text(0.5, 0.5, r"$y = a|bx - h| + k$", fontsize=12, ha='center', va='center')
+        ax.text(0.5, 0.5, r"$y = a|b(x - h)| + k$", fontsize=12, ha='center', va='center')
         fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
         return fig
     canvas = FigureCanvasTkAgg(expected_eqn(), master=expected_eqn_frame)

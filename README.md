@@ -66,7 +66,7 @@ If you do not enter a value in a field, it will use its default value:
 The program allows you to find the solutions to an absolute value equation of the form:
 
 $$
-y=a|bx-h|+k
+y=a|b(x-h)|+k
 $$
 
 A reference image is provided to indicate the form.
