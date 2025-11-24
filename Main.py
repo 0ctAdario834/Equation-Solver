@@ -28,7 +28,7 @@ create_rtnl_tab(notebook, window)
 
 Result_Format = ['Fractions', 'Decimals']
 
-format_var = StringVar(value="Decimal")
+format_var = StringVar(value="Decimals")
 
 def update_output_format():
     set_format(format_var.get())
