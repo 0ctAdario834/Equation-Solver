@@ -9,15 +9,15 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from fractions import Fraction
 from utils import get_format
 
-def create_logarithmic_tab(notebook, window):
-    tab_logeqnslvr = Frame(notebook)
-    notebook.add(tab_logeqnslvr,text=" | Logarithmic | ")
-    tab_logeqnslvr.config(background='#999999')
+def create_exponential_tab(notebook, window):
+    tab_expeqnsr = Frame(notebook)
+    notebook.add(tab_expeqnsr,text=" | Exponential | ")
+    tab_expeqnsr.config(background='#999999')
 
     entry_accuracy = None
 
-    name = Label(tab_logeqnslvr,
-                 text="Logarithmic Equation Solver",
+    name = Label(tab_expeqnsr,
+                 text="Exponential Equation Solver",
                  font=('Comic Sans MS',36),
                  background='#ffffff',
                  relief=RAISED,
@@ -40,7 +40,7 @@ def create_logarithmic_tab(notebook, window):
         entry_widget.bind("<FocusIn>", on_focus_in)
         entry_widget.bind("<FocusOut>", on_focus_out)
 
-    accuracy_frame = Frame(tab_logeqnslvr, bg="#999999", relief=RAISED, border=16, padx=16, pady=8)
+    accuracy_frame = Frame(tab_expeqnsr, bg="#999999", relief=RAISED, border=16, padx=16, pady=8)
     accuracy_frame.pack(pady=5)
     accuracy_indication = Label(accuracy_frame,text="Significant Figures:",font=('Comic Sans MS',12),fg="#333333",relief=RAISED,border=4,width=16)
     accuracy_indication.pack(side=LEFT,padx=4)
@@ -48,7 +48,7 @@ def create_logarithmic_tab(notebook, window):
     entry_accuracy.pack(padx=4)
     add_placeholder(entry_accuracy, "decimals...")
 
-    coeff_frame = Frame(tab_logeqnslvr, bg="#999999", relief=RAISED, border=16, padx=16, pady=8)
+    coeff_frame = Frame(tab_expeqnsr, bg="#999999", relief=RAISED, border=16, padx=16, pady=8)
     coeff_frame.pack(pady=10)
 
     expected_eqn_frame = Frame(coeff_frame, bg="#ffffff", relief=RAISED, border=8, padx=8, pady=4)
@@ -56,18 +56,12 @@ def create_logarithmic_tab(notebook, window):
     def expected_eqn():
         fig, ax = plt.subplots(figsize=(2, 0.5), dpi=100)
         ax.axis('off')
-        ax.text(0.5, 0.5, r"$y = a\,\log_{c}{(b(x - h))} + k$", fontsize=12, ha='center', va='center')
+        ax.text(0.5, 0.5, r"$y = a(c)^{b(x - h)} + k$", fontsize=12, ha='center', va='center')
         fig.subplots_adjust(left=0, right=1, top=1, bottom=0)
         return fig
     canvas = FigureCanvasTkAgg(expected_eqn(), master=expected_eqn_frame)
     canvas.draw()
     canvas.get_tk_widget().pack()
-
-    ln_note = Label(coeff_frame,
-                    text="(For natural logarithm, enter 'e' for base c)",
-                    font=('Comic Sans MS', 10),
-                    background='#999999')
-    ln_note.pack(side=TOP, pady=2)
 
     entry_a = Entry(coeff_frame, font=('Comic Sans MS', 12), relief=RAISED, border=4, width=12)
     entry_a.pack(side=LEFT, padx=4, pady=1)
@@ -93,7 +87,7 @@ def create_logarithmic_tab(notebook, window):
     entry_y.pack(side=LEFT, padx=4, pady=1)
     add_placeholder(entry_y, "Enter y...")
 
-    def SolveLogEquation():
+    def SolveExponentialEquation():
         try:
             a_raw = entry_a.get()
             b_raw = entry_b.get()
@@ -103,10 +97,7 @@ def create_logarithmic_tab(notebook, window):
             y_raw = entry_y.get()
             a = float(-1 if a_raw.strip() == "-" else a_raw if a_raw != "Enter a..." else 1)
             b = float(-1 if b_raw.strip() == "-" else b_raw if b_raw != "Enter b..." else 1)
-            if c_raw == "e":
-                c = math.e
-            else:
-                c = float(c_raw if c_raw != "Enter c..." else 10)
+            c = float(c_raw if c_raw != "Enter c..." else 10)
             h = float(h_raw if h_raw != "Enter h..." else 0)
             k = float(k_raw if k_raw != "Enter k..." else 0)
             y = float(y_raw if y_raw != "Enter y..." else 0)
@@ -125,10 +116,10 @@ def create_logarithmic_tab(notebook, window):
             accuracy = None
         try:
             if a == 0:
-                messagebox.showerror("Error", "This is not a logarithmic equation.")
+                messagebox.showerror("Error", "This is not an exponential equation.")
                 return
             if b == 0:
-                messagebox.showerror("Error", "This is not a logarithmic equation.")
+                messagebox.showerror("Error", "This is not an exponential equation.")
                 return
             if c <= 0 or c == 1:
                 messagebox.showerror("Error", "Base c must be positive and not equal to 1.")
@@ -137,26 +128,20 @@ def create_logarithmic_tab(notebook, window):
             printb = '' if b == 1 else f"{abs(b)}" if b > 0 else f"-{abs(b)}"
             printh = '' if h == 0 else f" - {abs(h)}" if h > 0 else f" + {abs(h)}"
             printk = '' if k == 0 else f" + {abs(k)}" if k > 0 else f" - {abs(k)}"
-            printc = c if c != math.e else 'ln'
+            printc = c
             printy = y
-            if printc == 'ln':
-                if printb != '':
-                    confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}ln({printb}(x{printh})){printk} ?")
-                else:
-                    confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}ln(x{printh}){printk} ?")
+            if printb != '':
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}({printc})^({printb}(x{printh})){printk} ?")
             else:
-                if printb != '':
-                    confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}log{printc}({printb}(x{printh})){printk} ?")
-                else:
-                    confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}log{printc}(x{printh}){printk} ?")
+                confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}({printc})^(x{printh}){printk} ?")
             if not confirmfnc:
                 return
-            if c <= 0 or c == 1:
+            if (y-k)/a < 0:
                 msg = "There is no solution."
                 messagebox.showinfo("Result", msg)
                 display_result(msg)
             else:
-                fx = ((c**((y-k)/a))/b)+h
+                fx = ((math.log((y-k)/a, c))/b)+h
                 if fx == 0:
                     fx = 0
                 if get_format() == 'Decimals':
@@ -176,9 +161,9 @@ def create_logarithmic_tab(notebook, window):
         except Exception as e:
             messagebox.showerror("Error", f"An unexpected error occurred:\n{e}")
 
-    solve_button = Button(tab_logeqnslvr,
+    solve_button = Button(tab_expeqnsr,
                           text="Solve Equation",
-                          command=SolveLogEquation,
+                          command=SolveExponentialEquation,
                           border=8,
                           relief=RAISED,
                           padx=4,
@@ -195,7 +180,7 @@ def create_logarithmic_tab(notebook, window):
             window.clipboard_append(text)
             window.update()
 
-    buttons_frame = Frame(tab_logeqnslvr, bg="#999999")
+    buttons_frame = Frame(tab_expeqnsr, bg="#999999")
     buttons_frame.pack(pady=5)
 
     clear_button = Button(buttons_frame,
@@ -216,7 +201,7 @@ def create_logarithmic_tab(notebook, window):
                          pady=4)
     copy_button.pack(side=LEFT, padx=5)
 
-    results_frame = Frame(tab_logeqnslvr, bg="#999999", relief=RAISED, border=8, padx=8, pady=8)
+    results_frame = Frame(tab_expeqnsr, bg="#999999", relief=RAISED, border=8, padx=8, pady=8)
     results_frame.pack(pady=10, fill=X)
 
     results_box = Text(results_frame,
@@ -230,4 +215,4 @@ def create_logarithmic_tab(notebook, window):
         results_box.insert(END, text + "\n")
         results_box.see(END)
 
-    return tab_logeqnslvr
+    return tab_expeqnsr

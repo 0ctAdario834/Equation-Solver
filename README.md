@@ -31,13 +31,14 @@ All tabs are active at once, they do not need to be opened and closed manually f
 
 # Equations
 
-This solver allows for 5 different equations:
+This solver allows for 6 different equations:
 
  - Quadratic
  - Absolute Value
  - Square Root
  - Rational
  - Logarithmic
+ - Exponential
 
 In addition to this, you are able to determine how many decimal positions answers will have (significant figures).
 If you chose to leave that designated field blank, the program will simply show as many decimals as the answer has.
@@ -110,6 +111,21 @@ The program allows you to find the solution to a logarithmic equation of the for
 
 $$
  y=a\ \log_{c}{(b(x-h))}+k
+$$
+
+A reference image is provided to indicate the form.
+
+To input the values of your equation, simply write them in their designated fields.
+If you do not enter a value in a field, it will use its default value:
+1 for a and b, 10 for c, 0 for h, k and y.
+For c, you can enter 'e' to use the natural logarithm function (ln).
+
+## Exponential
+
+The program allows you to find the solution to a logarithmic equation of the form:
+
+$$
+ y=a(c)^{b(x-h)}+k
 $$
 
 A reference image is provided to indicate the form.

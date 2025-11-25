@@ -5,6 +5,7 @@ from tabs.AbsltTab import create_absolute_tab
 from tabs.SqrtTab import create_sqrt_tab
 from tabs.RtnlTab import create_rtnl_tab
 from tabs.LogTab import create_logarithmic_tab
+from tabs.ExpTab import create_exponential_tab
 from utils import set_format
 
 window = Tk()
@@ -27,6 +28,7 @@ create_absolute_tab(notebook, window)
 create_sqrt_tab(notebook, window)
 create_rtnl_tab(notebook, window)
 create_logarithmic_tab(notebook, window)
+create_exponential_tab(notebook, window)
 
 Result_Format = ['Fractions', 'Decimals']
 
