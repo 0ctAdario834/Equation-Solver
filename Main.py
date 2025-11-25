@@ -21,7 +21,7 @@ notebook.pack(expand=True, fill="both")
 
 home = Frame(notebook)
 notebook.add(home,text=" | Home | ")
-home.config(background='#999999')
+home.config(background='#414141')
 
 create_quadratic_tab(notebook, window)
 create_absolute_tab(notebook, window)
