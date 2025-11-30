@@ -133,7 +133,6 @@ A reference image is provided to indicate the form.
 To input the values of your equation, simply write them in their designated fields.
 If you do not enter a value in a field, it will use its default value:
 1 for a and b, 10 for c, 0 for h, k and y.
-For c, you can enter 'e' to use the natural logarithm function (ln).
 
 ## Results box
 
@@ -152,6 +151,7 @@ The `clear results` button will, as it's name says, clear all results currently 
 Code: MIT License  
 Documentation and visuals: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
 See the [LICENSE](LICENSE) file for full details.
+
 
 
 
