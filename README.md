@@ -26,7 +26,9 @@ Standalone solvers (in terminal) do exist but they will probably be released at 
 ## Select an equation
 
 When you open the program, you will be met with an introduction page telling you to "Select a tab to get started".
+
 Tabs are located at the top of the program (Home, Quadratic, Absolute Value, Square Root, Rational, Logarithmic, Exponential).
+
 All tabs are active at once, they do not need to be opened and closed manually for each use. They also store the values you input and answers, while you change between them (the data is only stored for as long as you keep the program open).
 
 # Equations
@@ -151,6 +153,7 @@ The `clear results` button will, as it's name says, clear all results currently 
 Code: MIT License  
 Documentation and visuals: Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  
 See the [LICENSE](LICENSE) file for full details.
+
 
 
 
