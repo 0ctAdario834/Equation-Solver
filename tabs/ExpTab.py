@@ -63,6 +63,12 @@ def create_exponential_tab(notebook, window):
     canvas.draw()
     canvas.get_tk_widget().pack()
 
+    base_e_note = Label(coeff_frame,
+                    text="(For natural exponential growth, enter 'e' for base c)",
+                    font=('Comic Sans MS', 10),
+                    background='#999999')
+    base_e_note.pack(side=TOP, pady=2)
+
     entry_a = Entry(coeff_frame, font=('Comic Sans MS', 12), relief=RAISED, border=4, width=12)
     entry_a.pack(side=LEFT, padx=4, pady=1)
     add_placeholder(entry_a, "Enter a...")
@@ -97,7 +103,10 @@ def create_exponential_tab(notebook, window):
             y_raw = entry_y.get()
             a = float(-1 if a_raw.strip() == "-" else a_raw if a_raw != "Enter a..." else 1)
             b = float(-1 if b_raw.strip() == "-" else b_raw if b_raw != "Enter b..." else 1)
-            c = float(c_raw if c_raw != "Enter c..." else 10)
+            if c_raw == "e":
+                c = math.e
+            else:
+                c = float(c_raw if c_raw != "Enter c..." else 10)
             h = float(h_raw if h_raw != "Enter h..." else 0)
             k = float(k_raw if k_raw != "Enter k..." else 0)
             y = float(y_raw if y_raw != "Enter y..." else 0)
@@ -128,7 +137,7 @@ def create_exponential_tab(notebook, window):
             printb = '' if b == 1 else f"{abs(b)}" if b > 0 else f"-{abs(b)}"
             printh = '' if h == 0 else f" - {abs(h)}" if h > 0 else f" + {abs(h)}"
             printk = '' if k == 0 else f" + {abs(k)}" if k > 0 else f" - {abs(k)}"
-            printc = c
+            printc = c if c != math.e else 'e'
             printy = y
             if printb != '':
                 confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}({printc})^({printb}(x{printh})){printk} ?")
@@ -136,7 +145,7 @@ def create_exponential_tab(notebook, window):
                 confirmfnc = messagebox.askyesno('Confirm', f"Function is {printy} = {printa}({printc})^(x{printh}){printk} ?")
             if not confirmfnc:
                 return
-            if (y-k)/a < 0:
+            if (y-k)/a <= 0:
                 msg = "There is no solution."
                 messagebox.showinfo("Result", msg)
                 display_result(msg)
