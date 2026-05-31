@@ -77,6 +77,7 @@ easter_egg_found = False
 bonus_tab_added = 0
 
 def found_easter_egg(event):
+    global easter_egg_found
     easter_egg_found = True
     print("Easter Egg Activated!")
     MessageBox = Toplevel(window)
