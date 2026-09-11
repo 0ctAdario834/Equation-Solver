@@ -83,9 +83,15 @@ def found_easter_egg(event):
     MessageBox = Toplevel(window)
     MessageBox.geometry("400x250")
     MessageBox.title("Easter Egg")
-    MessageLabel = Label(MessageBox, text="Congratulations!\nYou've found\nthe Easter Egg!", font=('Comic Sans MS', 24), padx=20, pady=20)
+    MessageLabel = Label(MessageBox,
+                         text="Congratulations!\nYou've found\nthe Easter Egg!",
+                         font=('Comic Sans MS', 24),
+                         padx=20,
+                         pady=20)
     MessageLabel.pack()
-    CloseButton = Button(MessageBox, text="Close", command=MessageBox.destroy)
+    CloseButton = Button(MessageBox,
+                         text="Close",
+                         command=MessageBox.destroy)
     CloseButton.pack(pady=10)
     global bonus_tab_added
     if bonus_tab_added == 0:
@@ -93,9 +99,15 @@ def found_easter_egg(event):
             MessageBox = Toplevel(window)
             MessageBox.title("Bonus Hint")
             MessageBox.geometry("300x150")
-            MessageLabel = Label(MessageBox, text="B36", font=('Comic Sans MS', 24), padx=20, pady=20)
+            MessageLabel = Label(MessageBox,
+                                 text="B36",
+                                 font=('Comic Sans MS', 24),
+                                 padx=20,
+                                 pady=20)
             MessageLabel.pack()
-            CloseButton = Button(MessageBox, text="Close", command=MessageBox.destroy)
+            CloseButton = Button(MessageBox,
+                                 text="Close",
+                                 command=MessageBox.destroy)
             CloseButton.pack(pady=10)
     Bonus = Frame(notebook)
     notebook.add(Bonus,text=" | Bonus | ")
