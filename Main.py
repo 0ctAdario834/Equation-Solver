@@ -38,39 +38,39 @@ def update_output_format():
     set_format(format_var.get())
     print(f"Output format set to: {format_var.get()}")
 
-format_frame = Frame(home,
-                     relief=RAISED,
-                     border=16,
-                     padx=16,
-                     pady=8)
+format_frame = Frame(   home,
+                        relief=RAISED,
+                        border=16,
+                        padx=16,
+                        pady=8)
 format_frame.place(relx=0.4, y=20)
 
-format_label = Label(format_frame,
-                     text="Result Format",
-                     font=('Comic Sans MS', 12))
+format_label = Label(   format_frame,
+                        text="Result Format",
+                        font=('Comic Sans MS', 12))
 format_label.pack()
 
 for index, format_option in enumerate(Result_Format):
-    radiobutton = Radiobutton(format_frame,
-                     text=format_option,
-                     variable=format_var,
-                     value=format_option,
-                     command=update_output_format,
-                     font=('Comic Sans MS', 12))
+    radiobutton = Radiobutton(  format_frame,
+                                text=format_option,
+                                variable=format_var,
+                                value=format_option,
+                                command=update_output_format,
+                                font=('Comic Sans MS', 12))
     radiobutton.pack()
 
-HelloLabel = Label(home,
-                   text="Equation Solver\n\nCreated by: Adam Haddach\n\nSelect a tab to get started.",
-                   bg='#eeeeee',
-                   font=('Comic Sans MS', 24),
-                   relief=RAISED,
-                   border=32,
-                   padx=16,
-                   pady=16,
-                   justify=CENTER,
-                   highlightbackground='#444444',
-                   highlightcolor='#888888',
-                   highlightthickness=4)
+HelloLabel = Label( home,
+                    text="Equation Solver\n\nCreated by: Adam Haddach\n\nSelect a tab to get started.",
+                    bg='#eeeeee',
+                    font=('Comic Sans MS', 24),
+                    relief=RAISED,
+                    border=32,
+                    padx=16,
+                    pady=16,
+                    justify=CENTER,
+                    highlightbackground='#444444',
+                    highlightcolor='#888888',
+                    highlightthickness=4)
 HelloLabel.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 easter_egg_found = False
@@ -83,15 +83,15 @@ def found_easter_egg(event):
     MessageBox = Toplevel(window)
     MessageBox.geometry("400x250")
     MessageBox.title("Easter Egg")
-    MessageLabel = Label(MessageBox,
-                         text="Congratulations!\nYou've found\nthe Easter Egg!",
-                         font=('Comic Sans MS', 24),
-                         padx=20,
-                         pady=20)
+    MessageLabel = Label(   MessageBox,
+                            text="Congratulations!\nYou've found\nthe Easter Egg!",
+                            font=('Comic Sans MS', 24),
+                            padx=20,
+                            pady=20)
     MessageLabel.pack()
-    CloseButton = Button(MessageBox,
-                         text="Close",
-                         command=MessageBox.destroy)
+    CloseButton = Button(   MessageBox,
+                            text="Close",
+                            command=MessageBox.destroy)
     CloseButton.pack(pady=10)
     global bonus_tab_added
     if bonus_tab_added == 0:
@@ -99,31 +99,31 @@ def found_easter_egg(event):
             MessageBox = Toplevel(window)
             MessageBox.title("Bonus Hint")
             MessageBox.geometry("300x150")
-            MessageLabel = Label(MessageBox,
-                                 text="B36",
-                                 font=('Comic Sans MS', 24),
-                                 padx=20,
-                                 pady=20)
+            MessageLabel = Label(   MessageBox,
+                                    text="B36",
+                                    font=('Comic Sans MS', 24),
+                                    padx=20,
+                                    pady=20)
             MessageLabel.pack()
-            CloseButton = Button(MessageBox,
-                                 text="Close",
-                                 command=MessageBox.destroy)
+            CloseButton = Button(   MessageBox,
+                                    text="Close",
+                                    command=MessageBox.destroy)
             CloseButton.pack(pady=10)
     Bonus = Frame(notebook)
     notebook.add(Bonus,text=" | Bonus | ")
     Bonus.config(background='#999999')
-    BonusLabel = Label(Bonus,
-                       text="18 1012010 13726",
-                       bg='#eeeeee',
-                       font=('Comic Sans MS', 24),
-                       relief=RAISED,
-                       border=32,
-                       padx=16,
-                       pady=16,
-                       justify=CENTER,
-                       highlightbackground='#444444',
-                       highlightcolor='#888888',
-                       highlightthickness=4)
+    BonusLabel = Label( Bonus,
+                        text="18 1012010 13726",
+                        bg='#eeeeee',
+                        font=('Comic Sans MS', 24),
+                        relief=RAISED,
+                        border=32,
+                        padx=16,
+                        pady=16,
+                        justify=CENTER,
+                        highlightbackground='#444444',
+                        highlightcolor='#888888',
+                        highlightthickness=4)
     BonusLabel.place(relx=0.5, rely=0.5, anchor=CENTER)
     window.bind("<F1>", bonus_hint)
     bonus_tab_added = 1

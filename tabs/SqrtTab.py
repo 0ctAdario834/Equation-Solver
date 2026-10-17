@@ -1,9 +1,9 @@
 from tkinter import * # type: ignore
 from tkinter import ttk
 from tkinter import messagebox
-import math
-import cmath
-import time
+lazy import math
+lazy import cmath
+lazy import time
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from fractions import Fraction
@@ -16,14 +16,14 @@ def create_sqrt_tab(notebook, window):
 
     entry_accuracy = None
 
-    name = Label(tab_sqrteqnslvr,
-                 text="Square Root Equation Solver",
-                 font=('Comic Sans MS',36),
-                 background='#ffffff',
-                 relief=RAISED,
-                 border=8,
-                 padx=8,
-                 pady=8)
+    name = Label(   tab_sqrteqnslvr,
+                    text="Square Root Equation Solver",
+                    font=('Comic Sans MS',36),
+                    background='#ffffff',
+                    relief=RAISED,
+                    border=8,
+                    padx=8,
+                    pady=8)
     name.pack(side=TOP,pady=16)
 
     def add_placeholder(entry_widget, placeholder):
@@ -153,13 +153,13 @@ def create_sqrt_tab(notebook, window):
             messagebox.showerror("Error", f"An unexpected error occurred:\n{e}")
 
 
-    solve_button = Button(tab_sqrteqnslvr,
-                          text="Solve Equation",
-                          command=SolveSqrtEquation,
-                          border=8,
-                          relief=RAISED,
-                          padx=4,
-                          pady=4)
+    solve_button = Button(  tab_sqrteqnslvr,
+                            text="Solve Equation",
+                            command=SolveSqrtEquation,
+                            border=8,
+                            relief=RAISED,
+                            padx=4,
+                            pady=4)
     solve_button.pack(pady=16)
 
     def clear_results():
@@ -175,32 +175,32 @@ def create_sqrt_tab(notebook, window):
     buttons_frame = Frame(tab_sqrteqnslvr, bg="#999999")
     buttons_frame.pack(pady=5)
 
-    clear_button = Button(buttons_frame,
-                          text="Clear Results",
-                          command=clear_results,
-                          border=8,
-                          relief=RAISED,
-                          padx=4,
-                          pady=4)
+    clear_button = Button(  buttons_frame,
+                            text="Clear Results",
+                            command=clear_results,
+                            border=8,
+                            relief=RAISED,
+                            padx=4,
+                            pady=4)
     clear_button.pack(side=LEFT, padx=5)
 
-    copy_button = Button(buttons_frame,
-                         text="Copy Results",
-                         command=copy_results,
-                         border=8,
-                         relief=RAISED,
-                         padx=4,
-                         pady=4)
+    copy_button = Button(   buttons_frame,
+                            text="Copy Results",
+                            command=copy_results,
+                            border=8,
+                            relief=RAISED,
+                            padx=4,
+                            pady=4)
     copy_button.pack(side=LEFT, padx=5)
 
     results_frame = Frame(tab_sqrteqnslvr, bg="#999999", relief=RAISED, border=8, padx=8, pady=8)
     results_frame.pack(pady=10, fill=X)
 
-    results_box = Text(results_frame,
-                       font=('Comic Sans MS', 12),
-                       height=8, width=60,
-                       wrap=WORD,
-                       relief=RAISED, border=4)
+    results_box = Text( results_frame,
+                        font=('Comic Sans MS', 12),
+                        height=8, width=60,
+                        wrap=WORD,
+                        relief=RAISED, border=4)
     results_box.pack(side=LEFT, fill=BOTH, expand=True)
 
     def display_result(text):
